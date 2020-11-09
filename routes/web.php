@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[ 'as' => 'rutaInicio','uses' => 'controladorVistas@abreInicio']);
 
-Route::get('formularioAdminInstru',[ 'as' =>'rutaAdminInstru','uses' => 'controladorVistas@abreAdminIns']);
+Route::get('AdministracionInstrumento',[ 'as' =>'rutaAdminInstru','uses' => 'controladorVistas@abreAdminIns']);
 
-Route::get('formularioAdminCompo',[ 'as' =>'rutaAdminCompo','uses' => 'controladorVistas@abreAdminCom']);
+Route::get('AdministracionComponentes',[ 'as' =>'rutaAdminCompo','uses' => 'controladorVistas@abreAdminCom']);
 
-Route::get('formularioInventario',[ 'as' =>'rutaInventario','uses' => 'controladorVistas@abreInventario']);
+Route::get('ReportesInstrumentos',[ 'as' =>'rutaInventario','uses' => 'controladorVistas@abreInventario']);
 
-Route::get('formularioReportes',[ 'as' =>'rutaReportes','uses' => 'controladorVistas@abreReportes']);
+Route::get('ReportesComponentes',[ 'as' =>'rutaReportes','uses' => 'controladorVistas@abreReportes']);
 
-Route::get('formularioVentasCompo',[ 'as' =>'rutaVentasCompo','uses' => 'controladorVistas@abreVentasCom']);
+Route::get('VenderComponentes',[ 'as' =>'rutaVentasCompo','uses' => 'controladorVistas@abreVentasCom']);
 
-Route::get('formularioVentasInstru',[ 'as' =>'rutaVentasInstru','uses' => 'controladorVistas@abreVentasIns']);
+Route::get('VenderInstrumentos',[ 'as' =>'rutaVentasInstru','uses' => 'controladorVistas@abreVentasIns']);
