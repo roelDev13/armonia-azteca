@@ -28,7 +28,6 @@ class ValidadorVenderIns extends FormRequest
             'color'=>'required',
             'cantidad'=>'required',
             'precio'=>'required',
-            'total'=>'required',
             'fechaVenta'=>'required'
             
         ];
