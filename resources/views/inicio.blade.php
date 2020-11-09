@@ -2,18 +2,17 @@
 
 @section('contenido')
 
-    <div class="container text-center">
-      <h1 class= "display-1 mt-4 text-primary "> Pagina de inicio</h1>
-    </div>
-
-    <div class="display-4 mt-5 mb-5">
-      <a href="<?php echo route('rutaInicio')?>">Inicio</a>
-      <a href="<?php echo route('rutaAdminInstru')?>">Admin Instru</a>
-      <a href="<?php echo route('rutaAdminCompo')?>">Admin Compo</a>
-      <a href="<?php echo route('rutaInventario')?>">Inventario</a>
-      <a href="<?php echo route('rutaReportes')?>">Reportes</a>
-      <a href="<?php echo route('rutaVentasCompo')?>">Ventas Compo</a>
-      <a href="<?php echo route('rutaVentasInstru')?>">Ventas Instru</a>
+<div class="hero-image">
+  <div class="hero-text">
+      <h1 style="font-size:50px">Armonia Azteca</h1><br>
+      <div>
+          <p>Stock!</p>  
+          <form class="form-inline">
+              <input type="email" class="form-control" size="50" placeholder="Encuentra lo que estas buscando">
+              <button type="button" class="btn btn-primary">Buscar</button>
+          </form>
       </div>
+  </div>
+</div>
 
     @stop 
