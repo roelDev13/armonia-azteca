@@ -2,6 +2,10 @@
 
 @section('contenido')
 
+@if(session()->has('mensaje'))
+            {!!"<script>Swal.fire('Exito','Todo correcto!','success')</script>"!!}
+ @endif
+
 <div class="container">
   <h2>Administracion de instrumentos</h2>
   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#añadir">Añadir</button>
@@ -118,33 +122,40 @@
           <h4 class="modal-title">Añadir nuevo instrumento</h4>
           </div>
           <div class="modal-body">
-                  <form action="">
-                      <div class="form-group">
-                          <label for="email">Instrumento:</label>
-                          <input type="text" class="form-control" id="email" name="email">
+                  <form action="validadorAdminInstru" method="post">
+                  <div class="form-group">
+                          <label for="pwd">Instrumento:</label>
+                          <input type="text" class="form-control" id="instrumento" name="instrumento">
                       </div>
+                      {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                       <div class="form-group">
-                          <label for="pwd">Color:</label>
-                          <input type="text" class="form-control" id="pwd" name="pwd">
+                          <label for="email">Color:</label>
+                          <input type="text" class="form-control" id="color" name="color">
                       </div>
+                      {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
                       <div class="form-group">
                           <label for="pwd">Cantidad:</label>
-                          <input type="text" class="form-control" id="pwd" name="pwd">
+                          <input type="text" class="form-control" id="cantidad" name="cantidad">
                       </div>
+                      {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                       <div class="form-group">
                           <label for="pwd">Precio Compra:</label>
-                          <input type="text" class="form-control" id="pwd" name="pwd">
+                          <input type="text" class="form-control" id="precioCompra" name="precioCompra">
                       </div>
+                      {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                       <div class="form-group">
                           <label for="pwd">Precio Venta:</label>
-                          <input type="text" class="form-control" id="pwd"  name="pwd">
+                          <input type="text" class="form-control" id="precioVenta"  name="precioVenta">
                       </div>
+                      {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                       <div class="form-group">
                           <label for="pwd">Fecha ingreso:</label>
-                          <input type="text" class="form-control" id="pwd"  name="pwd">
+                          <input type="text" class="form-control" id="fecha"  name="fecha">
                       </div>
-                      <button type="submit" class="btn btn-success">Guardar</button>
-                  </form>
+                      {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+              <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
           </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -166,36 +177,43 @@
       <h4 class="modal-title">Actualizar</h4>
       </div>
       <div class="modal-body">
-          <form action="">
-              <div class="form-group">
-                  <label for="email">Instrumento:</label>
-                  <input type="text" class="form-control" id="email" name="email">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Color:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Cantidad:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Precio Compra:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Precio Venta:</label>
-                  <input type="text" class="form-control" id="pwd"  name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Fecha ingreso:</label>
-                  <input type="text" class="form-control" id="pwd"  name="pwd">
-              </div>
+      <form action="validadorAdminInstru" method="post">
+                  <div class="form-group">
+                          <label for="pwd">Instrumento:</label>
+                          <input type="text" class="form-control" id="instrumento" name="instrumento">
+                      </div>
+                      {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                      <div class="form-group">
+                          <label for="email">Color:</label>
+                          <input type="text" class="form-control" id="color" name="color">
+                      </div>
+                      {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+                      <div class="form-group">
+                          <label for="pwd">Cantidad:</label>
+                          <input type="text" class="form-control" id="cantidad" name="cantidad">
+                      </div>
+                      {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                      <div class="form-group">
+                          <label for="pwd">Precio Compra:</label>
+                          <input type="text" class="form-control" id="precioCompra" name="precioCompra">
+                      </div>
+                      {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                      <div class="form-group">
+                          <label for="pwd">Precio Venta:</label>
+                          <input type="text" class="form-control" id="precioVenta"  name="precioVenta">
+                      </div>
+                      {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                      <div class="form-group">
+                          <label for="pwd">Fecha ingreso:</label>
+                          <input type="text" class="form-control" id="fecha"  name="fecha">
+                      </div>
+                      {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
               <button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
       </div>
   </div>
   

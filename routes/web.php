@@ -26,3 +26,17 @@ Route::get('ReportesComponentes',[ 'as' =>'rutaReportes','uses' => 'controladorV
 Route::get('VenderComponentes',[ 'as' =>'rutaVentasCompo','uses' => 'controladorVistas@abreVentasCom']);
 
 Route::get('VenderInstrumentos',[ 'as' =>'rutaVentasInstru','uses' => 'controladorVistas@abreVentasIns']);
+
+//Para envio de datos
+ 
+Route::post('validadorAdminCompo',[ 'as' =>'rutaDatosCompo','uses' => 'controladorDatos@validadorAdminCompo']);
+
+Route::post('validadorAdminInstru',[ 'as' =>'rutaDatosInstru','uses' => 'controladorDatos@validadorAdminInstru']);
+
+Route::post('validadorVenderCompo',[ 'as' =>'rutaVentaCompo','uses' => 'controladorDatos@validadorVenderCompo']);
+
+Route::post('validadorVenderInstru',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorVenderInstru']);
+
+Route::post('validadorReporteCompo',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteCompo']);
+
+Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteInstru']);

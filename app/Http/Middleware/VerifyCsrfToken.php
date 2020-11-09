@@ -12,6 +12,12 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        'validadorAdminCompo',
+        'validadorAdminInstru',
+        'validadorVenderCompo',
+        'validadorVenderInstru',
+        'validadorReporteCompo',
+        'validadorReporteInstru'
+        
     ];
 }

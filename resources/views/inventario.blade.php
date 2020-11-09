@@ -1,6 +1,11 @@
 @extends('plantilla')
 
 @section('contenido')
+
+@if(session()->has('mensaje'))
+    {!!"<script>Swal.fire('Exito','Reporte registrado!','success')</script>"!!}
+@endif
+
 <div class="container">
   <h2>Todas las ventas: Instrumento</h2>
       <div class="dropdown">
@@ -111,31 +116,44 @@
       <h4 class="modal-title">Empleado: #Victor Dimas Elias </h4>
       </div>
       <div class="modal-body">
-          <form action="">
-              <div class="form-group">
-                  <label for="email">Componente:</label>
-                  <input type="text" class="form-control" id="email" name="email">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Instrumento:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Cantidad:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Precio:</label>
-                  <input type="text" class="form-control" id="pwd" name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Total:</label>
-                  <input type="text" class="form-control" id="pwd"  name="pwd">
-              </div>
-              <div class="form-group">
-                  <label for="pwd">Fecha venta:</label>
-                  <input type="text" class="form-control" id="pwd"  name="pwd">
-              </div>
+      <form action="validadorReporteInstru" method="post">
+
+<div class="form-group">
+     <label for="pwd">Instrumento:</label>
+     <input type="text" class="form-control" id="instrumento" name="instrumento">
+ </div>
+ {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+ <div class="form-group">
+     <label for="pwd">Color:</label>
+     <input type="text" class="form-control" id="color" name="color">
+ </div>
+ {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+ <div class="form-group">
+     <label for="pwd">Cantidad:</label>
+     <input type="text" class="form-control" id="cantidad" name="cantidad">
+ </div>
+ {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+ <div class="form-group">
+     <label for="pwd">Precio:</label>
+     <input type="text" class="form-control" id="precio" name="precio">
+ </div>
+ {!!$errors -> first('precio','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+ <div class="form-group">
+     <label for="pwd">Total:</label>
+     <input type="text" class="form-control" id="total"  name="total">
+ </div>
+ {!!$errors -> first('total','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+ <div class="form-group">
+     <label for="pwd">Fecha venta:</label>
+     <input type="text" class="form-control" id="fechaVenta"  name="fechaVenta">
+ </div>
+ {!!$errors -> first('fechaVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
               <button type="submit" class="btn btn-primary"> Imprimir Ticket
                   <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
               </button>
