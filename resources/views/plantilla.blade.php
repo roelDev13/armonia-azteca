@@ -60,8 +60,14 @@
         </div>
     </nav>
 
-@yield('contenido')
+    
 
+@yield('contenido')
+<footer class="page-footer font-small pt-4">
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://google.com/">Armonia Azteca</a>
+  </div>
+</footer>
 </body>
 
 </html>
