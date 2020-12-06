@@ -14,10 +14,10 @@ use App\Http\Requests\ValidadorAdministracionIns;
 
 class controladorDatos extends Controller
 {
-    public function validadorAdminCompo(ValidadorAdministracionCom $datosValidados){
+    /* public function validadorAdminCompo(ValidadorAdministracionCom $datosValidados){
         
-        return redirect('AdministracionComponentes')->with('mensaje','El registro se almaceno en la BD');  
-    }
+        return redirect('getAllComponentes')->with('mensaje','El registro se almaceno en la BD');  
+    } */
     public function validadorAdminInstru(ValidadorAdministracionIns $datosValidados){
         
         return redirect('AdministracionInstrumento')->with('mensaje','El registro se almaceno en la BD');  

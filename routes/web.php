@@ -17,7 +17,7 @@ Route::get('/',[ 'as' => 'rutaInicio','uses' => 'controladorVistas@abreInicio'])
 
 Route::get('AdministracionInstrumento',[ 'as' =>'rutaAdminInstru','uses' => 'controladorVistas@abreAdminIns']);
 
-Route::get('AdministracionComponentes',[ 'as' =>'rutaAdminCompo','uses' => 'controladorVistas@abreAdminCom']);
+/* Route::get('AdministracionComponentes',[ 'as' =>'rutaAdminCompo','uses' => 'controladorVistas@abreAdminCom']); */
 
 Route::get('ReportesInstrumentos',[ 'as' =>'rutaInventario','uses' => 'controladorVistas@abreInventario']);
 
@@ -40,3 +40,8 @@ Route::post('validadorVenderInstru',[ 'as' =>'rutaVentaInstru','uses' => 'contro
 Route::post('validadorReporteCompo',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteCompo']);
 
 Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteInstru']);
+
+//Rutas para componentes
+Route::get('componentes','componentes@index') -> name('adminCompo');
+
+Route::post('componentes','componentes@añadirComponentes') -> name('componentes.añadir');
