@@ -40,3 +40,17 @@ Route::post('validadorVenderInstru',[ 'as' =>'rutaVentaInstru','uses' => 'contro
 Route::post('validadorReporteCompo',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteCompo']);
 
 Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteInstru']);
+
+//Para CRUD de Administración de Instrumentos
+
+Route::get('AdministracionInstrumento/create', 'controladorBDInstrumentos@create')->name('instrumentos.create');
+
+Route::post('instrumentos', 'controladorBDInstrumentos@store')->name('instrumentos.store');
+
+Route::get('instrumentos','controladorBDInstrumentos@index')->name('instrumentos.index');
+
+Route::get('instrumentos/{id}', 'controladorBDInstrumentos@show')->name('instrumentos.show');
+
+Route::delete('instrumentos/{id}', 'controladorBDInstrumentos@destroy')->name('instrumentos.destroy');
+
+Route::put('instrumentos/{id}', 'controladorBDInstrumentos@update')->name('instrumentos.update');

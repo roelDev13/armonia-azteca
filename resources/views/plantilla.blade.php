@@ -29,7 +29,8 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo route('rutaAdminInstru')?>">Instrumentos</a></li>
+                                                  <!--rutaAdminInstru-->
+                    <li><a href="<?php echo route('instrumentos.index')?>">Instrumentos</a></li>
                     <li><a href="<?php echo route('rutaAdminCompo')?>">Componentes</a></li>
                   </ul>
                 </li>
