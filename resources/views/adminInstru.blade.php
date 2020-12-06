@@ -47,65 +47,7 @@
             </button></td>
         </td>
     </tr>
-    <!--
-    <tr>
-        <td>2</td>
-        <td>Fender Stratocaster</td>
-        <td>Amarilla</td>
-        <td>10</td>
-        <td>$6000 USD</td>
-        <td>$5800 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-            </button></td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button></td>
-        </td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>Gibson Les Paul</td>
-        <td>Negra</td>
-        <td>20</td>
-        <td>$200 USD</td>
-        <td>$180 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-            </button></td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button></td>
-        </td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>Bombo DW</td>
-        <td>Negro</td>
-        <td>35</td>
-        <td>$600 USD</td>
-        <td>$580 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align" 
-            >
-                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-            </button></td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </button></td>
-        </td>
-    </tr>
-    -->
+    
     @endforeach
     </tbody>
 </table>
@@ -192,28 +134,28 @@
     {!! csrf_field() !!} 
                 <div class="form-group">
                         <label for="pwd">Instrumento:</label>
-                        <input type="text" class="form-control" id="instrumento" name="instrumento">
+                        <input type="text" class="form-control" id="instrumento" name="instrumento" value=" {{ $instrumento->instrumento }} ">
                     </div>
                     {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <div class="form-group">
                         <label for="email">Color:</label>
-                        <input type="text" class="form-control" id="color" name="color">
+                        <input type="text" class="form-control" id="color" name="color" value=" {{ $instrumento->color }} ">
                     </div>
                     {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
                     <div class="form-group">
                         <label for="pwd">Cantidad:</label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad">
+                        <input type="number" class="form-control" id="cantidad" name="cantidad" value=" {{ $instrumento->cantidad }} ">
                     </div>
                     {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <div class="form-group">
                         <label for="pwd">Precio Compra:</label>
-                        <input type="number" class="form-control" id="precioCompra" name="precioCompra">
+                        <input type="number" class="form-control" id="precioCompra" name="precioCompra" value=" {{ $instrumento->precioCompra }} ">
                     </div>
                     {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <div class="form-group">
                         <label for="pwd">Precio Venta:</label>
-                        <input type="number" class="form-control" id="precioVenta"  name="precioVenta">
+                        <input type="number" class="form-control" id="precioVenta"  name="precioVenta" value=" {{ $instrumento->precioVenta }} ">
                     </div>
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <!--
