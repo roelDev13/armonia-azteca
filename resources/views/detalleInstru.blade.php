@@ -16,7 +16,7 @@
 
 <div class="container">
 <h2>Administracion de instrumentos</h2>
-<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#añadir">Añadir</button>
+
 
 <div class="table-responsive">          
 <table class="table">
@@ -34,19 +34,27 @@
     </tr>
     </thead>
     <tbody>
-    @foreach ($consultarInstrumentos as $instrumento)
     <tr>
-        <td><a href="{{route('instrumentos.show',$instrumento->id)}}">{{ $instrumento->id }}</a></td>
-        <td>{{ $instrumento->instrumento }}</td>
-        <td>{{ $instrumento->color }}</td>
-        <td>{{ $instrumento->cantidad }}</td>
-        <td>{{ $instrumento->precioCompra }}</td>
-        <td>{{ $instrumento->precioVenta }}</td>
-        <td>{{ $instrumento->created_at }}</td>
-      
+        <td>{{ $instrumentoid->id }}</td>
+        <td>{{ $instrumentoid->instrumento }}</td>
+        <td>{{ $instrumentoid->color }}</td>
+        <td>{{ $instrumentoid->cantidad }}</td>
+        <td>{{ $instrumentoid->precioCompra }}</td>
+        <td>{{ $instrumentoid->precioVenta }}</td>
+        <td>{{ $instrumentoid->created_at }}</td>
+        <td>
+            <button type="submit" class="btn btn-default editar" aria-label="Left Align"
+            data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+            </button></td>
+        <td>
+            <button type="submit" class="btn btn-default" aria-label="Left Align"
+            data-toggle="modal" data-target="#eliminar">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button></td>
+        </td>
     </tr>
-    
-    @endforeach
+
     </tbody>
 </table>
 </div>
@@ -54,67 +62,7 @@
 
 <!-- Trigger the modal with a button -->
 
-<!-- Modal -->
-<div class="modal fade" id="añadir" role="dialog">
-    <div class="modal-dialog">
-    
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Añadir nuevo instrumento</h4>
-        </div>
-        <div class="modal-body">
-                <!--action= "validadorAdminInstru"-->
-                <form action="{{route('instrumentos.store')}}" method="post">
-                {!! csrf_field() !!}
-                <div class="form-group">
-                        <label for="pwd">Instrumento:</label>
-                        <input type="text" class="form-control" name="instrumento">
-                    </div>
-                    {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-                    
-                    <div class="form-group">
-                        <label for="email">Color:</label>
-                        <input type="text" class="form-control"  name="color">
-                    </div>
-                    {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
-                    <div class="form-group">
-                        <label for="pwd">Cantidad:</label>
-                        <input type="number" class="form-control"  name="cantidad">
-                    </div>
-                    {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-                    
-                    <div class="form-group">
-                        <label for="pwd">Precio Compra:</label>
-                        <input type="number" class="form-control" name="precioCompra">
-                    </div>
-                    {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-                    
-                    <div class="form-group">
-                        <label for="pwd">Precio Venta:</label>
-                        <input type="number" class="form-control"  name="precioVenta" value="">
-                    </div>
-                    {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-                    <!--
-                    <div class="form-group">
-                        <label for="pwd">Fecha ingreso:</label>
-                        <input type="date" class="form-control" id="fecha"  name="fecha">
-                    </div>
-                    {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-                    -->
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-    </div>
-</div>
-
-</div>
-<!--Fin Modal Añadir-->
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -127,7 +75,7 @@
     <h4 class="modal-title">Actualizar</h4>
     </div>
     <div class="modal-body">
-    <form action="{{route('instrumentos.update',$instrumento->id )}}" method="post" id="editar">
+    <form action="{{route('instrumentos.update',$instrumentoid->id )}}" method="post" id="editar">
     {!!method_field('put')!!}
     {!! csrf_field() !!} 
 
@@ -198,7 +146,7 @@
         <h2>¿Desea eliminar?</h2>
     </div>
     <div class="modal-footer">
-    <form action="{{route('instrumentos.destroy',$instrumento->id )}}" method="POST">
+    <form action="{{route('instrumentos.destroy',$instrumentoid->id )}}" method="POST">
                 @csrf
                 @method('DELETE')  
     <button type="submit" class="btn btn-danger" >Eliminar</button>
