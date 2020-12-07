@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Requests\ValidadorVenderCom;
 use Carbon\Carbon;
 
-class controladorVentasComBD extends Controller
+class controladorReporteComBD extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,9 @@ class controladorVentasComBD extends Controller
      */
     public function index()
     {
-        $consultarComponentes= DB::table('componentes')->get();
-        return view('ventasCompo',compact('consultarComponentes'));
+        $consultarReporteCom= DB::table('ventacomponenete')->get();
+        return view('reportes',compact('consultarReporteCom'));
     }
-
-   
 
     /**
      * Show the form for creating a new resource.
@@ -38,19 +35,9 @@ class controladorVentasComBD extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidadorVenderCom $validador)
+    public function store(Request $request)
     {
-        DB::table('ventacomponenete')->insert([
-            "componente"=> $validador-> input('componente'),  
-            "instrumento"=> $validador-> input('instrumento'),
-            "cantidad"=> $validador-> input('cantidad'),
-            "precio"=> $validador-> input('precio'),
-            "total"=> $validador-> input('total'),
-            "empleado"=> $validador-> input('empleado'),
-            "created_at"=> Carbon::now(),
-            "updated_at"=> Carbon::now(),
-        ]);
-        return redirect('componentesVenta')->with('mensaje', 'Se han agregado los datos');
+        //
     }
 
     /**
@@ -84,18 +71,7 @@ class controladorVentasComBD extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*
-        $cantidad = DB::table('componentes')->pluck('cantidad')->sum();
-        $ventacomponenete = DB::table('ventacomponenete')->pluck('cantidad')->sum();
-        $stock = $cantidad - $ventacomponenete;
-
-        DB::table('componentes')->where('id',$id)->update([
-            "cantidad"=> $stock-> input('cantidad'),
-
-        ]);
-        return redirect('instrumentos')->with('actualizar','Dato actualizado con exito');
-*/
-
+        //
     }
 
     /**
@@ -108,6 +84,4 @@ class controladorVentasComBD extends Controller
     {
         //
     }
-
-    
 }
