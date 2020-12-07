@@ -21,7 +21,6 @@
                 <span class="icon-bar"></span>                        
             </button>
         </div>
-
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<?php echo route('rutaInicio')?>">Inicio</a></li>
@@ -29,9 +28,12 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
+
+            
+                    <li><a href="{{route('adminCompo')}}">Componentes</a></li>
                                                   <!--rutaAdminInstru-->
                     <li><a href="<?php echo route('instrumentos.index')?>">Instrumentos</a></li>
-                    <li><a href="<?php echo route('rutaAdminCompo')?>">Componentes</a></li>
+              
                   </ul>
                 </li>
 
@@ -48,8 +50,8 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vender
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo route('rutaVentasInstru')?>">Instrumentos</a></li>
-                    <li><a href="<?php echo route('rutaVentasCompo')?>">Componentes</a></li>
+                    <li><a href="<?php echo route('instrumentosVenta.index')?>">Instrumentos</a></li>
+                    <li><a href="<?php echo route('componentesVenta.index')?>">Componentes</a></li>
                   </ul>
                 </li>
             </ul>
@@ -69,6 +71,10 @@
     <a href="https://google.com/">Armonia Azteca</a>
   </div>
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 
 </html>

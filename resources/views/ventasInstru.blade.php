@@ -24,14 +24,16 @@
     </tr>
     </thead>
     <tbody>
+    @foreach ($consultarInstrumentos as $instrumento)
     <tr>
-        <td>1</td>
-        <td>Taylor GS mini</td>
-        <td>Natural</td>
-        <td>35</td>
-        <td>$6000 USD</td>
-        <td>$5800 USD</td>
-        <td>2020-10-01</td>
+    <td>{{ $instrumento->id }}</td>
+        <td>{{ $instrumento->instrumento }}</td>
+        <td>{{ $instrumento->color }}</td>
+        <td>{{ $instrumento->cantidad }}</td>
+        <td>{{ $instrumento->precioCompra }}</td>
+        <td>{{ $instrumento->precioVenta }}</td>
+        <td>{{ $instrumento->created_at }}</td>
+
         <td>
             <button type="button" class="btn btn-default" aria-label="Left Align"
             data-toggle="modal" data-target="#myModal">
@@ -40,49 +42,8 @@
         </td>
     
     </tr>
+    @endforeach
 
-    <tr>
-        <td>2</td>
-        <td>Fender Stratocaster</td>
-        <td>Amarilla</td>
-        <td>10</td>
-        <td>$6000 USD</td>
-        <td>$5800 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-            </button></td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>Gibson Les Paul</td>
-        <td>Negra</td>
-        <td>20</td>
-        <td>$200 USD</td>
-        <td>$180 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-            </button></td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>Bombo DW</td>
-        <td>Negro</td>
-        <td>35</td>
-        <td>$600 USD</td>
-        <td>$580 USD</td>
-        <td>2020-10-01</td>
-        <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align" 
-            >
-                <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-            </button></td>
-    </tr>
     </tbody>
 </table>
 </div>
