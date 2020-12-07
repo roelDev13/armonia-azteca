@@ -19,7 +19,7 @@
             <th>Stock</th>
             <th>Compra</th>
             <th>Venta</th>
-            {{-- <th>Ingreso</th> --}}
+            <th>Ingreso</th>
             <th></th>
             
         </tr>
@@ -33,7 +33,7 @@
             <td>{{$componentes -> cantidad}}</td>
             <td>{{$componentes -> compra}}</td>
             <td>{{$componentes -> venta}}</td>
-            {{-- <td>{{$componentes -> created_at}}</td> --}}
+            <td>{{$componentes -> created_at}}</td>
             <td>
                 
                 <button  class="btn btn-default edit" aria-label="Left Align"
