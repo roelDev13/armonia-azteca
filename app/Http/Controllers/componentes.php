@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorAdministracionCom;
+use App\Models\Componente;
 use DB;
 use Carbon\carbon;
 
@@ -11,7 +12,7 @@ class componentes extends Controller
 {
     
     public function index(){
-        $getComponentes = DB::table('componentes')->get();
+        $getComponentes = Componente::all();
         return view('adminCompo', compact('getComponentes'));
     }
 
