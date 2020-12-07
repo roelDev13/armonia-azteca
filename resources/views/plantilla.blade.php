@@ -28,14 +28,12 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-<<<<<<< HEAD
-                    <li><a href="<?php echo route('rutaAdminInstru')?>">Instrumentos</a></li>
+
+            
                     <li><a href="{{route('adminCompo')}}">Componentes</a></li>
-=======
                                                   <!--rutaAdminInstru-->
                     <li><a href="<?php echo route('instrumentos.index')?>">Instrumentos</a></li>
-                    <li><a href="<?php echo route('rutaAdminCompo')?>">Componentes</a></li>
->>>>>>> dev
+              
                   </ul>
                 </li>
 

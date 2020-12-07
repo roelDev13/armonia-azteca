@@ -41,14 +41,14 @@ Route::post('validadorReporteCompo',[ 'as' =>'rutaVentaInstru','uses' => 'contro
 
 Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'controladorDatos@validadorReporteInstru']);
 
-<<<<<<< HEAD
+
 //Rutas para componentes
 Route::get('componentes','componentes@index') -> name('adminCompo');
 
 Route::post('componentes','componentes@añadirComponentes') -> name('componentes.añadir');
 
 Route::delete('componentes/{id}','componentes@destroy') -> name('componentes.destroy');
-=======
+
 //Para CRUD de Administración de Instrumentos
 
 Route::get('AdministracionInstrumento/create', 'controladorBDInstrumentos@create')->name('instrumentos.create');
@@ -62,14 +62,10 @@ Route::get('instrumentos/{id}', 'controladorBDInstrumentos@show')->name('instrum
 Route::delete('instrumentos/{id}', 'controladorBDInstrumentos@destroy')->name('instrumentos.destroy');
 
 Route::put('instrumentos/{id}', 'controladorBDInstrumentos@update')->name('instrumentos.update');
-<<<<<<< HEAD
+
 
 //ruta Controlador Ventas
 
 Route::get('instrumentosVenta','controladorVentasInsBD@index')->name('instrumentosVenta.index');
 
 Route::get('componentesVenta','controladorVentasComBD@index')->name('componentesVenta.index');
-
-=======
->>>>>>> dev
->>>>>>> a2206519c0665b5fc81e98ed9ed983d4850040c5
