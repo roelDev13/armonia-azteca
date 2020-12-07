@@ -35,7 +35,6 @@
             <td>{{$comps -> venta}}</td>
             <td>{{$comps -> created_at}}</td>
             <td>
-                
                 <a href="{{route('componentes.show',$comps->id_componente)}}" class="btn btn-default edit" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
