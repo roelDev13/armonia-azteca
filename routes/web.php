@@ -54,3 +54,10 @@ Route::get('instrumentos/{id}', 'controladorBDInstrumentos@show')->name('instrum
 Route::delete('instrumentos/{id}', 'controladorBDInstrumentos@destroy')->name('instrumentos.destroy');
 
 Route::put('instrumentos/{id}', 'controladorBDInstrumentos@update')->name('instrumentos.update');
+
+//ruta Controlador Ventas
+
+Route::get('instrumentosVenta','controladorVentasInsBD@index')->name('instrumentosVenta.index');
+
+Route::get('componentesVenta','controladorVentasComBD@index')->name('componentesVenta.index');
+

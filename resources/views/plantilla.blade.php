@@ -48,8 +48,8 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vender
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo route('rutaVentasInstru')?>">Instrumentos</a></li>
-                    <li><a href="<?php echo route('rutaVentasCompo')?>">Componentes</a></li>
+                    <li><a href="<?php echo route('instrumentosVenta.index')?>">Instrumentos</a></li>
+                    <li><a href="<?php echo route('componentesVenta.index')?>">Componentes</a></li>
                   </ul>
                 </li>
             </ul>

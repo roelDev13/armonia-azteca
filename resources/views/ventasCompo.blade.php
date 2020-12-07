@@ -23,30 +23,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Cuerdas</td>
-            <td>Taylor GS mini</td>
-            <td>35</td>
-            <td>$50 USD</td>
-            <td>$40 USD</td>
-            <td>2020-10-01</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
+        @foreach ($consultarComponentes as $componente)
+    <tr>
+    <td>{{ $componente->id_componente }}</td>
+        <td>{{ $componente->componente }}</td>
+        <td>{{ $componente->instrumento }}</td>
+        <td>{{ $componente->cantidad }}</td>
+        <td>{{ $componente->compra }}</td>
+        <td>{{ $componente->venta }}</td>
+        <td>{{ $componente->created_at }}</td>
 
-        <tr>
-            <td>2</td>
-            <td>Amplificador</td>
-            <td>Fender Stratocaster</td>
-            <td>10</td>
-            <td>$200 USD</td>
-            <td>$180 USD</td>
-            <td>2020-10-01</td>
             <td>
                 <button type="button" class="btn btn-default" aria-label="Left Align"
                 data-toggle="modal" data-target="#myModal">
@@ -54,38 +40,8 @@
                 </button>
             </td>
         </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Afinador</td>
-            <td>Gibson Les Paul</td>
-            <td>20</td>
-            <td>$40 USD</td>
-            <td>$30 USD</td>
-            <td>2020-10-01</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>4</td>
-            <td>Afinador</td>
-            <td>Bombo DW</td>
-            <td>35</td>
-            <td>$40 USD</td>
-            <td>$30 USD</td>
-            <td>2020-10-01</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
+        @endforeach
+       
         </tbody>
     </table>
 </div>
@@ -131,6 +87,13 @@
                 <input type="date" class="form-control" id="fechaVenta"  name="fechaVenta">
             </div>
             {!!$errors -> first('fechaVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+            <div class="form-group">
+                <label for="pwd">Empleado:</label>
+                <input type="text" class="form-control" id="instrumento" name="empleado">
+            </div>
+            {!!$errors -> first('empleado','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
 
             <button type="submit" class="btn btn-primary"> Realizar Compra
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
