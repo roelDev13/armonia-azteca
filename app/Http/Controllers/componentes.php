@@ -53,12 +53,12 @@ class componentes extends Controller
             "venta"=> $validador-> input('precioVenta'),
             "updated_at"=> Carbon::now(),
         ]);
-        return redirect('componentes')->with('actualizar','Dato actualizado con exito');
+        return redirect('componentes')->with('mensaje','El registro se almaceno en la BD');
     }
 
     public function destroy($id)
     {
         DB::table('componentes')->delete($id);
-        return redirect('componentes');
+        return redirect('componentes')->with('mensaje','El registro se almaceno en la BD');
     }
 }

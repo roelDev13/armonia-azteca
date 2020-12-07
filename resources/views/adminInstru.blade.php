@@ -43,6 +43,9 @@
         <td>{{ $instrumento->precioCompra }}</td>
         <td>{{ $instrumento->precioVenta }}</td>
         <td>{{ $instrumento->created_at }}</td>
+        <td><a href="{{route('instrumentos.show',$instrumento->id)}}" class="btn btn-default edit" aria-label="Left Align">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </a></td>
     </tr>
     
     @endforeach
