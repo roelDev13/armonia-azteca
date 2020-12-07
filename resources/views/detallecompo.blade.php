@@ -33,13 +33,13 @@
         </thead>
         <tbody>
         <tr>
-            <td>{{$componenteid -> id_componente}}</td>
-            <td>{{$componenteid -> componente}}</td>
-            <td>{{$componenteid -> instrumento}}</td>
-            <td>{{$componenteid -> cantidad}}</td>
-            <td>{{$componenteid -> compra}}</td>
-            <td>{{$componenteid -> venta}}</td>
-            <td>{{$componenteid  -> created_at}}</td>
+            <td>{{$componenteid->id_componente}}</td>
+            <td>{{$componenteid->componente}}</td>
+            <td>{{$componenteid->instrumento}}</td>
+            <td>{{$componenteid->cantidad}}</td>
+            <td>{{$componenteid->compra}}</td>
+            <td>{{$componenteid->venta}}</td>
+            <td>{{$componenteid->created_at}}</td>
             <td>
                 <button  class="btn btn-default edit" aria-label="Left Align"
                 data-toggle="modal" data-target="#editarcomponente">
