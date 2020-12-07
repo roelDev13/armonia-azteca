@@ -45,3 +45,5 @@ Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'contr
 Route::get('componentes','componentes@index') -> name('adminCompo');
 
 Route::post('componentes','componentes@añadirComponentes') -> name('componentes.añadir');
+
+Route::delete('componentes/{id}','componentes@destroy') -> name('componentes.destroy');

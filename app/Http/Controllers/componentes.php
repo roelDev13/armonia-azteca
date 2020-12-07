@@ -51,6 +51,7 @@ class componentes extends Controller
 
     public function destroy($id)
     {
-        //
+        DB::table('componentes')->delete($id);
+        return redirect('componentes');
     }
 }
