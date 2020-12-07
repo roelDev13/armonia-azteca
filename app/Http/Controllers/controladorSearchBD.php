@@ -31,7 +31,10 @@ class controladorSearchBD extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $consultarInstrumentos = DB::table('instrumentos')->where('instrumento', 'like', '%'.$search.'%')->paginate(5);
+        $consultarInstrumentos = DB::table('instrumentos')->where('instrumento', 'like', '%'.$search.'%')
+        ->orWhere('color', 'like', '%'.$search.'%')
+        ->orWhere('id', 'like', '%'.$search.'%')
+        ->paginate(5);
         if(count ($consultarInstrumentos) > 0){
             return view('ventasInstru', compact('consultarInstrumentos'));
         }else{
@@ -44,7 +47,10 @@ class controladorSearchBD extends Controller
     public function searchCom(Request $request)
     {
         $search = $request->get('search2');
-        $consultarComponentes = DB::table('componentes')->where('componente', 'like', '%'.$search.'%')->paginate(5);
+        $consultarComponentes = DB::table('componentes')->where('componente', 'like', '%'.$search.'%')
+        ->orWhere('instrumento', 'like', '%'.$search.'%')
+        ->orWhere('id_componente', 'like', '%'.$search.'%')
+        ->paginate(5);
         if(count ($consultarComponentes) > 0){
             return view('ventasCompo', compact('consultarComponentes'));
         }else{

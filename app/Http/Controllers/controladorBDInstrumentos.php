@@ -60,7 +60,7 @@ class controladorBDInstrumentos extends Controller
     public function show($id)
     {
         $instrumentoid= DB::table('instrumentos')->where('id',$id)->first();
-        return redirect('AdministracionInstrumento/create', compact('instrumentoid'));
+        return view('detalleInstru', compact('instrumentoid'));
     }
 
     /**
