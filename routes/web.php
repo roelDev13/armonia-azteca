@@ -74,7 +74,8 @@ Route::get('componentesVenta','controladorVentasComBD@index')->name('componentes
 
 //Rutas de Inicio
 
-Route::post('/search', function(){
-    $q = Request::get('q');
-    dd($q);
-});
+Route::get('search', 'controladorSearchBD@search')->name('buscar.search');
+
+Route::get('searchCom', 'controladorSearchBD@searchCom')->name('buscar.searchCom');
+
+Route::get('buscar','controladorSearchBD@create')->name('buscar.index');
