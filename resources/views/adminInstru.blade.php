@@ -43,7 +43,6 @@
         <td>{{ $instrumento->precioCompra }}</td>
         <td>{{ $instrumento->precioVenta }}</td>
         <td>{{ $instrumento->created_at }}</td>
-      
     </tr>
     
     @endforeach

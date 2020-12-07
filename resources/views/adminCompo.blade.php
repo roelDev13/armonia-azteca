@@ -27,7 +27,7 @@
         <tbody>
             @foreach ($componente as $comps)
         <tr>
-            <td>{{$comps -> id_componente}}</td>
+            <td><a href="{{route('componentes.show',$comps->id_componente)}}">{{$comps -> id_componente}}</a></td>
             <td>{{$comps -> componente}}</td>
             <td>{{$comps -> instrumento}}</td>
             <td>{{$comps -> cantidad}}</td>
@@ -36,18 +36,10 @@
             <td>{{$comps -> created_at}}</td>
             <td>
                 
-                <button  class="btn btn-default edit" aria-label="Left Align"
-                data-toggle="modal" data-target="#editarcomponente">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                </button>
-            </td>
-            <td>
-                <button type="submit" class="btn btn-default " aria-label="Left Align"
-                data-toggle="modal" data-target="#eliminarcomponente">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </button>
-            </td>
-            
+                <a href="{{route('componentes.show',$comps->id_componente)}}" class="btn btn-default edit" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+            </td>        
         </tr>
         @endforeach
         </tbody>
@@ -107,7 +99,7 @@
     </div>
 </div>
 </div>
-<!-- Modal Añadir -->
+
 
 </div>
 

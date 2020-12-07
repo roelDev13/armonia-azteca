@@ -35,7 +35,8 @@ class componentes extends Controller
     }
 
     public function show($id){
-        
+        $componenteid= DB::table('componentes')->where('id_componente',$id)->first();
+        return view('detallecompo', compact('componenteid'));
     }
 
     public function edit($id)
@@ -43,17 +44,16 @@ class componentes extends Controller
         //
     }
 
-    public function update(ValidadorAdministracionCom $validador){
-       /*  DB::table('componente')->where("id_componente" -> input('idcomponente'))->update([
+    public function update(ValidadorAdministracionCom $validador, $id){
+        DB::table('componentes')->where('id_componente',$id)->update([
             "componente"=> $validador-> input('componente'),
             "instrumento"=> $validador-> input('instrumento'),
             "cantidad"=> $validador-> input('cantidad'),
-            "precioCompra"=> $validador-> input('precioCompra'),
-            "precioVenta"=> $validador-> input('precioVenta'),
+            "compra"=> $validador-> input('precioCompra'),
+            "venta"=> $validador-> input('precioVenta'),
             "updated_at"=> Carbon::now(),
-
         ]);
-        return redirect('/componentes')->with('mensaje','El registro se almaceno en la BD'); */
+        return redirect('componentes')->with('actualizar','Dato actualizado con exito');
     }
 
     public function destroy($id)

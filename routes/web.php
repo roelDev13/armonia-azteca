@@ -47,9 +47,10 @@ Route::post('validadorReporteInstru',[ 'as' =>'rutaVentaInstru','uses' => 'contr
 Route::resource('/componentes','componentes');
 /* Route::get('componentes','componentes@index') -> name('adminCompo'); */
 Route::post('componentes','componentes@store') -> name('componentes.añadir'); 
+Route::get('/componentes/{id}', 'componentes@show')->name('componentes.show');
+Route::put('componentes/{id}', 'componentes@update')->name('componentes.update');
+Route::delete('componentes/{id}', 'componentes@destroy')->name('componentes.destroy');
 
-
-//Route::delete('componentes/{id}','componentes@destroy') -> name('componentes.destroy');
 
 //Para CRUD de Administración de Instrumentos
 
