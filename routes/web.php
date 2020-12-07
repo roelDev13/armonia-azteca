@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,11 @@ Route::put('instrumentos/{id}', 'controladorBDInstrumentos@update')->name('instr
 Route::get('instrumentosVenta','controladorVentasInsBD@index')->name('instrumentosVenta.index');
 
 Route::get('componentesVenta','controladorVentasComBD@index')->name('componentesVenta.index');
+
+
+//Rutas de Inicio
+
+Route::post('/search', function(){
+    $q = Request::get('q');
+    dd($q);
+});
