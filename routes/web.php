@@ -77,10 +77,13 @@ Route::post('instrumentosVenta','controladorVentasInsBD@store')->name('instrumen
 
 Route::post('componentesVenta','controladorVentasComBD@store')->name('componentesVenta.store');
 
-//rutas reportes
+//rutas reportes Componentes
 
 Route::get('componentesReporte','controladorReporteComBD@index')->name('componentesReporte.index');
 
+//rutas reportes Instrumentos
+
+Route::get('instrumentosReporte','controladorReporteInstruBD@index')->name('instrumentosReporte.index');
 
 //Rutas de Inicio
 
