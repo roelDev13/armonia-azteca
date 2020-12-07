@@ -26,27 +26,28 @@
     </tr>
     </thead>
     <tbody>
+    @foreach ($consultarInstrumentos as $instrumento)
     <tr>
-        <td>1</td>
-        <td>Taylor GS mini</td>
-        <td>Natural</td>
-        <td>35</td>
-        <td>$6000 USD</td>
-        <td>$5800 USD</td>
-        <td>2020-10-01</td>
+        <td>{{ $instrumento->id }}</td>
+        <td>{{ $instrumento->instrumento }}</td>
+        <td>{{ $instrumento->color }}</td>
+        <td>{{ $instrumento->cantidad }}</td>
+        <td>{{ $instrumento->precioCompra }}</td>
+        <td>{{ $instrumento->precioVenta }}</td>
+        <td>{{ $instrumento->created_at }}</td>
         <td>
             <button type="button" class="btn btn-default" aria-label="Left Align"
             data-toggle="modal" data-target="#myModal">
                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
             </button></td>
         <td>
-            <button type="button" class="btn btn-default" aria-label="Left Align"
+            <button type="submit" class="btn btn-default" aria-label="Left Align"
             data-toggle="modal" data-target="#eliminar">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </button></td>
         </td>
     </tr>
-
+    <!--
     <tr>
         <td>2</td>
         <td>Fender Stratocaster</td>
@@ -104,6 +105,8 @@
             </button></td>
         </td>
     </tr>
+    -->
+    @endforeach
     </tbody>
 </table>
 </div>
@@ -122,12 +125,15 @@
         <h4 class="modal-title">Añadir nuevo instrumento</h4>
         </div>
         <div class="modal-body">
-                <form action="validadorAdminInstru" method="post">
+                <!--action= "validadorAdminInstru"-->
+                <form action="{{route('instrumentos.store')}}" method="post">
+                {!! csrf_field() !!}
                 <div class="form-group">
                         <label for="pwd">Instrumento:</label>
                         <input type="text" class="form-control" id="instrumento" name="instrumento">
                     </div>
                     {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="email">Color:</label>
                         <input type="text" class="form-control" id="color" name="color">
@@ -139,21 +145,25 @@
                         <input type="number" class="form-control" id="cantidad" name="cantidad">
                     </div>
                     {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="pwd">Precio Compra:</label>
                         <input type="number" class="form-control" id="precioCompra" name="precioCompra">
                     </div>
                     {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="pwd">Precio Venta:</label>
                         <input type="number" class="form-control" id="precioVenta"  name="precioVenta">
                     </div>
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    <!--
                     <div class="form-group">
                         <label for="pwd">Fecha ingreso:</label>
                         <input type="date" class="form-control" id="fecha"  name="fecha">
                     </div>
                     {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    -->
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
         </div>
@@ -177,7 +187,9 @@
     <h4 class="modal-title">Actualizar</h4>
     </div>
     <div class="modal-body">
-    <form action="validadorAdminInstru" method="post">
+    <form action="{{route('instrumentos.update',$instrumento->id )}}" method="post">
+    {!!method_field('put')!!}
+    {!! csrf_field() !!} 
                 <div class="form-group">
                         <label for="pwd">Instrumento:</label>
                         <input type="text" class="form-control" id="instrumento" name="instrumento">
@@ -204,12 +216,17 @@
                         <input type="number" class="form-control" id="precioVenta"  name="precioVenta">
                     </div>
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    <!--
                     <div class="form-group">
                         <label for="pwd">Fecha ingreso:</label>
                         <input type="date" class="form-control" id="fecha"  name="fecha">
                     </div>
                     {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    -->
+            
+                    
             <button type="submit" class="btn btn-primary">Actualizar</button>
+
         </form>
     </div>
     <div class="modal-footer">
@@ -234,7 +251,11 @@
         <h2>¿Desea eliminar?</h2>
     </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+    <form action="{{route('instrumentos.destroy',$instrumento->id )}}" method="POST">
+                @csrf
+                @method('DELETE')  
+    <button type="submit" class="btn btn-danger" >Eliminar</button>
+    </form>
     </div>
 </div>
 
