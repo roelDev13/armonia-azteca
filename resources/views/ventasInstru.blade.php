@@ -8,7 +8,7 @@
 
 <div class="container">
 <h2>Vender instrumento</h2>
-<div class="table-responsive">          
+<div class="table-responsive">         
 <table class="table">
     <thead>
     <tr>
@@ -36,7 +36,7 @@
 
         <td>
             <button type="button" class="btn btn-default venderIns" aria-label="Left Align"
-            data-toggle="modal" data-target="#myModalIns">
+            data-toggle="modal" data-target="#myModalIns" id="boton1" name="boton1">
                 <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
             </button>
         </td>
@@ -74,13 +74,13 @@
             </div>
             {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
-            <div class="form-group">
+            <div class="form-group-1">
                 <label for="pwd">Cantidad:</label>
                 <input type="number" class="form-control" id="cantidad" name="cantidad">
             </div>
             {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
-            <div class="form-group">
+            <div class="form-group-1">
                 <label for="pwd">Precio:</label>
                 <input type="number" class="form-control" id="precio" name="precio">
             </div>
@@ -94,7 +94,7 @@
             
             <div class="form-group">
                 <label for="pwd">Total:</label>
-                <input type="text" class="form-control" id="total" name="total" onclick="this.value=''">
+                <input type="text" class="form-control" id="total" name="total" >
                 
             </div>
             {!!$errors -> first('total','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
@@ -103,11 +103,25 @@
             <button type="submit" class="btn btn-primary"  > Realizar Compra
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </button>
-            
-                
-            
+                       
         </form>
-        
+        <script>
+        $(document).ready(function(){
+            $('.cantidad').on("keyup change",function(){
+                update_amounts();
+            });
+        });
+            function update_amounts(){
+                var sum = 0.0;
+                $('#form-group1').each(function(){
+                    var cantidad = parseFloat($(this).find('.cantidad').val());
+                    var precio = parseFloat($(this).find('.precio').val());
+                    var amount = (cantidad * precio);
+
+
+                });
+            }
+        </script>
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

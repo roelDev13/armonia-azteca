@@ -45,7 +45,7 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo route('rutaInventario')?>">Instrumentos</a></li>
+                    <li><a href="<?php echo route('instrumentosReporte.index')?>">Instrumentos</a></li>
                     <li><a href="<?php echo route('componentesReporte.index')?>">Componentes</a></li>
                   </ul>
                 </li>
