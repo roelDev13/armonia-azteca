@@ -29,9 +29,7 @@ class ValidadorAdministracionCom extends FormRequest
             'cantidad'=>'required',
             'precioCompra'=>'required',
             'precioVenta'=>'required',
-            'fecha'=>'required',
             
-           
         ];
         
     }

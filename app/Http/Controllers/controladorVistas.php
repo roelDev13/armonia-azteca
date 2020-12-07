@@ -14,9 +14,9 @@ class controladorVistas extends Controller
         return view('adminInstru');
     }
 
-    public function abreAdminCom(){
+   /*  public function abreAdminCom(){
         return view('adminCompo');
-    }
+    } */
 
     public function abreInventario(){
         return view('inventario');
