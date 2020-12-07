@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ValidadorAdministracionIns;
 use DB;
 use Carbon\Carbon;
+
 
 class controladorBDInstrumentos extends Controller
 {
@@ -36,7 +37,7 @@ class controladorBDInstrumentos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $validador)
+    public function store(ValidadorAdministracionIns $validador)
     {
         DB::table('instrumentos')->insert([
             "instrumento"=> $validador-> input('instrumento'),
@@ -47,7 +48,7 @@ class controladorBDInstrumentos extends Controller
             "created_at"=> Carbon::now(),
             "updated_at"=> Carbon::now(),
         ]);
-        return redirect('instrumentos');
+        return redirect('instrumentos')->with('mensaje', 'Se han agregado los datos');
     }
 
     /**
@@ -80,7 +81,7 @@ class controladorBDInstrumentos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $validador, $id)
+    public function update(ValidadorAdministracionIns $validador, $id)
     {
         DB::table('instrumentos')->where('id',$id)->update([
             "instrumento"=> $validador-> input('instrumento'),
@@ -91,7 +92,7 @@ class controladorBDInstrumentos extends Controller
             "updated_at"=> Carbon::now(),
 
         ]);
-        return redirect('instrumentos')->with('actualizado','Libro actualizado con exito');
+        return redirect('instrumentos')->with('actualizar','Dato actualizado con exito');
     }
 
     /**
@@ -103,6 +104,6 @@ class controladorBDInstrumentos extends Controller
     public function destroy($id)
     {
         DB::table('instrumentos')->delete($id);
-        return redirect('instrumentos')->with('eliminado', 'El libro se borro de la BD');
+        return redirect('instrumentos')->with('eliminar', 'El libro se borro de la BD');
     }
 }

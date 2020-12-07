@@ -210,7 +210,7 @@
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <div class="form-group">
                         <label for="pwd">Fecha ingreso:</label>
-                        <input type="date" class="form-control" id="fecha"  name="fecha">
+                        <input type="date" class="form-control" id="fecha"  name="fecha" value="0">
                     </div>
                     {!!$errors -> first('fecha','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <button type="submit" class="btn btn-success">Modificar</button>

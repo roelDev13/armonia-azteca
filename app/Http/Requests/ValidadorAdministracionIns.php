@@ -28,8 +28,7 @@ class ValidadorAdministracionIns extends FormRequest
             'instrumento'=>'required',
             'cantidad'=>'required',
             'precioCompra'=>'required',
-            'precioVenta'=>'required',
-            'fecha'=>'required',
+            'precioVenta'=>'required'
         ];
     }
 }

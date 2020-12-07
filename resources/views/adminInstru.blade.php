@@ -6,6 +6,14 @@
             {!!"<script>Swal.fire('Exito','Todo correcto!','success')</script>"!!}
 @endif
 
+@if(session()->has('actualizar'))
+            {!!"<script>Swal.fire('Exito','Todo correcto!','success')</script>"!!}
+@endif
+
+@if(session()->has('eliminar'))
+            {!!"<script>Swal.fire('Exito','Todo correcto!','success')</script>"!!}
+@endif
+
 <div class="container">
 <h2>Administracion de instrumentos</h2>
 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#añadir">Añadir</button>
@@ -134,30 +142,34 @@
     {!! csrf_field() !!} 
                 <div class="form-group">
                         <label for="pwd">Instrumento:</label>
-                        <input type="text" class="form-control" id="instrumento" name="instrumento" value=" {{ $instrumento->instrumento }} ">
+                        <input type="text" class="form-control" id="instrumento" name="instrumento" placeholder=" {{ $instrumento->instrumento }} ">
                     </div>
                     {!!$errors -> first('instrumento','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="email">Color:</label>
-                        <input type="text" class="form-control" id="color" name="color" value=" {{ $instrumento->color }} ">
+                        <input type="text" class="form-control" id="color" name="color" placeholder=" {{ $instrumento->color }} ">
                     </div>
                     {!!$errors -> first('color','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
                     <div class="form-group">
                         <label for="pwd">Cantidad:</label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad" value=" {{ $instrumento->cantidad }} ">
+                        <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder=" {{ $instrumento->cantidad }} ">
                     </div>
                     {!!$errors -> first('cantidad','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="pwd">Precio Compra:</label>
-                        <input type="number" class="form-control" id="precioCompra" name="precioCompra" value=" {{ $instrumento->precioCompra }} ">
+                        <input type="number" class="form-control" id="precioCompra" name="precioCompra" placeholder=" {{ $instrumento->precioCompra }} ">
                     </div>
                     {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <div class="form-group">
                         <label for="pwd">Precio Venta:</label>
-                        <input type="number" class="form-control" id="precioVenta"  name="precioVenta" value=" {{ $instrumento->precioVenta }} ">
+                        <input type="number" class="form-control" id="precioVenta"  name="precioVenta" placeholder=" {{ $instrumento->precioVenta }} ">
                     </div>
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+                    
                     <!--
                     <div class="form-group">
                         <label for="pwd">Fecha ingreso:</label>
