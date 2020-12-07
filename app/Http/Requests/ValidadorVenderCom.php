@@ -28,8 +28,8 @@ class ValidadorVenderCom extends FormRequest
             'instrumento'=>'required',
             'cantidad'=>'required',
             'precio'=>'required',
-            'fechaVenta'=>'required',
-            'empleado'=>'required'
+            'empleado'=>'required',
+            'total'=>'required',
             
             
         ];
