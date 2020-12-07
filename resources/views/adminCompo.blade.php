@@ -25,15 +25,15 @@
         </tr>
         </thead>
         <tbody>
-            @foreach ($getComponentes as $componentes)
+            @foreach ($componente as $comps)
         <tr>
-            <td>{{$componentes -> id_componente}}</td>
-            <td>{{$componentes -> componente}}</td>
-            <td>{{$componentes -> instrumento}}</td>
-            <td>{{$componentes -> cantidad}}</td>
-            <td>{{$componentes -> compra}}</td>
-            <td>{{$componentes -> venta}}</td>
-            <td>{{$componentes -> created_at}}</td>
+            <td>{{$comps -> id_componente}}</td>
+            <td>{{$comps -> componente}}</td>
+            <td>{{$comps -> instrumento}}</td>
+            <td>{{$comps -> cantidad}}</td>
+            <td>{{$comps -> compra}}</td>
+            <td>{{$comps -> venta}}</td>
+            <td>{{$comps -> created_at}}</td>
             <td>
                 
                 <button  class="btn btn-default edit" aria-label="Left Align"
@@ -94,7 +94,7 @@
                     {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     <div class="form-group">
                         <label for="pwd">Precio Venta:</label>
-                        <input type="number" class="form-control" id=""  name="precioVenta">
+                        <input type="number" class="form-control" id=""  name="precioVenta" >
                     </div>
                     {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                     
@@ -124,13 +124,16 @@
         </div>
     
         <div class="modal-body">
-            <form action="/componentes" method="post" id="edit">
+            <form action="{{ route('componentes.update') }}" method="POST" id="edit">
                 {!! csrf_field() !!}
-                {!!method_field('put')!!}
+                {!!method_field('PUT')!!}
             <div class="form-group">
                         <div class="form-group">
-                            <input type="hidden" class="form-control" id="idcomponente" name="componente">
                             <label for="pwd">Componente:</label>
+                            <input type="number" class="form-control" id="idcomponentes" name="idcomponente" readonly>
+                        </div>        
+                        <div class="form-group">
+                            <label>Componente:</label>
                             <input type="text" class="form-control" id="componente" name="componente">
                         </div>
                         {!!$errors -> first('componente','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
@@ -152,7 +155,7 @@
                         {!!$errors -> first('precioCompra','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                         <div class="form-group">
                             <label for="pwd">Precio Venta:</label>
-                            <input type="number" class="form-control" id="precioVenta"  name="precioVenta">
+                            <input type="number" class="form-control" id="precioVenta"  name="precioVenta" >
                         </div>
                         {!!$errors -> first('precioVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
                         <button type="submit" class="btn btn-success">Modificar</button>

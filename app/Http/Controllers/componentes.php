@@ -12,8 +12,8 @@ class componentes extends Controller
 {
     
     public function index(){
-        $getComponentes = Componente::all();
-        return view('adminCompo', compact('getComponentes'));
+        $componente = Componente::all();
+        return view('adminCompo') -> with('componente', $componente);
     }
 
     
@@ -22,22 +22,20 @@ class componentes extends Controller
         
     }
 
-    public function añadirComponentes(ValidadorAdministracionCom $validador){
-        DB::table('componentes')->insert([
-            "componente" => $validador -> input('componente'),
-            "instrumento" => $validador -> input('instrumento'),
-            "cantidad" => $validador -> input('cantidad'),
-            "compra" => $validador -> input('precioCompra'),
-            "venta" => $validador -> input('precioVenta'),
-            "created_at"=> Carbon::now(),
-            "updated_at"=> Carbon::now(),
-        ]);
-        return redirect('componentes')->with('mensaje','El registro se almaceno en la BD');
+    public function store(ValidadorAdministracionCom $validador){
+            $componente = new Componente;
+
+            $componente -> componente = $validador -> input('componente');
+            $componente -> instrumento = $validador -> input('instrumento');
+            $componente -> cantidad = $validador -> input('cantidad');
+            $componente -> compra = $validador -> input('precioCompra');
+            $componente -> venta = $validador -> input('precioVenta');
+            $componente -> save();
+        return redirect('/componentes')->with('mensaje','El registro se almaceno en la BD');
     }
 
     public function show($id){
-        $componenteid= DB::table('componente')->where('id',$id)->first();
-        return view('adminCompo', compact('libroid'));
+        
     }
 
     public function edit($id)
@@ -45,9 +43,17 @@ class componentes extends Controller
         //
     }
 
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(ValidadorAdministracionCom $validador){
+       /*  DB::table('componente')->where("id_componente" -> input('idcomponente'))->update([
+            "componente"=> $validador-> input('componente'),
+            "instrumento"=> $validador-> input('instrumento'),
+            "cantidad"=> $validador-> input('cantidad'),
+            "precioCompra"=> $validador-> input('precioCompra'),
+            "precioVenta"=> $validador-> input('precioVenta'),
+            "updated_at"=> Carbon::now(),
+
+        ]);
+        return redirect('/componentes')->with('mensaje','El registro se almaceno en la BD'); */
     }
 
     public function destroy($id)
