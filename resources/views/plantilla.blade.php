@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url('/index.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+   
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <title>Armonia</title>
@@ -46,7 +46,7 @@
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="<?php echo route('rutaInventario')?>">Instrumentos</a></li>
-                    <li><a href="<?php echo route('rutaReportes')?>">Componentes</a></li>
+                    <li><a href="<?php echo route('componentesReporte.index')?>">Componentes</a></li>
                   </ul>
                 </li>
 

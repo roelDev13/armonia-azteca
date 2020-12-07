@@ -34,7 +34,7 @@
         <td>{{ $componente->created_at }}</td>
 
             <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
+                <button type="button" class="btn btn-default venderCompo"   aria-label="Left Align"
                 data-toggle="modal" data-target="#myModal">
                     <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                 </button>
@@ -57,7 +57,8 @@
     <h4 class="modal-title">Empleado: #Victor Dimas Elias </h4>
     </div>
     <div class="modal-body">
-        <form action="validadorVenderCompo" method="post">
+        <form action="{{route('componentesVenta.store')}}" method="post">
+        {!! csrf_field() !!}
             <div class="form-group">
                 <label for="email">Componente:</label>
                 <input type="text" class="form-control" id="componente" name="componente">
@@ -83,22 +84,28 @@
             {!!$errors -> first('precio','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
             <div class="form-group">
-                <label for="pwd">Fecha venta:</label>
-                <input type="date" class="form-control" id="fechaVenta"  name="fechaVenta">
-            </div>
-            {!!$errors -> first('fechaVenta','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
-
-            <div class="form-group">
                 <label for="pwd">Empleado:</label>
-                <input type="text" class="form-control" id="instrumento" name="empleado">
+                <input type="text" class="form-control" id="empleado" name="empleado">
             </div>
             {!!$errors -> first('empleado','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
+
+            <div class="form-group">
+            
+                <label for="pwd">Total:</label>
+                <input type="text" class="form-control" id="total" name="total" >
+                <input type="submit" id="boton1" name="boton1" value="calcular">
+                
+                
+               
+            </div>
+            {!!$errors -> first('total','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
 
             <button type="submit" class="btn btn-primary"> Realizar Compra
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
             </button>
         </form>
+
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -109,4 +116,27 @@
 </div>
 
 </div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+            $('.venderCompo').on('click', function() {
+
+                $('#myModal').modal('show');
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+                    console.log(data);
+
+                    $('#idVenta').val(data[0]);
+                    $('#componente').val(data[1]);
+                    $('#instrumento').val(data[2]);
+                    $('#cantidad').val(data[3]);
+                    $('#precio').val(data[4]);
+                    
+            });
+        });
+    
+</script>
     @stop 

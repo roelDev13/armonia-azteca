@@ -34,15 +34,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Cuerdas</td>
-            <td>Taylor GS mini</td>
-            <td>1</td>
-            <td>$6000 USD</td>
-            <td>$6000 USD</td>
-            <td>2020-10-01</td>
-            <td>Victor Dimas Elias</td>
+        @foreach ($consultarReporteCom as $componente)
+    <tr>
+    <td>{{ $componente->idVentaComponente}}</td>
+        <td>{{ $componente->componente }}</td>
+        <td>{{ $componente->instrumento }}</td>
+        <td>{{ $componente->cantidad }}</td>
+        <td>{{ $componente->precio }}</td>
+        <td>{{ $componente->total }}</td>
+        <td>{{ $componente->created_at }}</td>
+        <td>{{ $componente->empleado}}</td>
             <td>
                 <button type="button" class="btn btn-default" aria-label="Left Align"
                 data-toggle="modal" data-target="#myModal">
@@ -50,57 +51,8 @@
                 </button>
             </td>
         </tr>
+        @endforeach
 
-        <tr>
-            <td>2</td>
-            <td>Amplificador</td>
-            <td>Fender Stratocaster</td>
-            <td>1</td>
-            <td>$6000 USD</td>
-            <td>$6000 USD</td>
-            <td>2020-10-01</td>
-            <td>Victor Dimas Elias</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Afinador</td>
-            <td>Gibson Les Paul</td>
-            <td>2</td>
-            <td>$200 USD</td>
-            <td>$400 USD</td>
-            <td>2020-10-01</td>
-            <td>Victor Dimas Elias</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>4</td>
-            <td>Afinador</td>
-            <td>Bombo DW</td>
-            <td>3</td>
-            <td>$600 USD</td>
-            <td>$1800 USD</td>
-            <td>2020-10-01</td>
-            <td>Victor Dimas Elias</td>
-            <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align"
-                data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-                </button>
-            </td>
-        </tr>
         </tbody>
     </table>
 </div>
