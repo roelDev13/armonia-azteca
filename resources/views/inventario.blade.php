@@ -30,7 +30,6 @@
             <th>Fecha</th>
             <th>Empleado</th>
             <th></th>
-            
         </tr>
         </thead>
         <tbody>

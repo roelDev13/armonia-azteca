@@ -89,15 +89,14 @@
             </div>
             {!!$errors -> first('empleado','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
-            <div class="form-group">
+            {{-- <div class="form-group">
             
                 <label for="pwd">Total:</label>
                 <input type="text" class="form-control" id="total" name="total" >
                 <input type="submit" id="boton1" name="boton1" value="calcular">
                 
                 
-               
-            </div>
+            </div> --}}
             {!!$errors -> first('total','<div class="alert alert-danger"><strong><span class="text-danger">:message</span></strong> </div>')!!}
 
 
